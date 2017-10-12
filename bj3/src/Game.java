@@ -10,7 +10,7 @@ public class Game {
     private boolean dealerDone = false;
     boolean blackjack = false;
 
-    //// Method for player HIT/STAY /////////////////////////////////////////
+    //// Method for player HIT/STAY ////////////////////////////////////////
     protected boolean playerTurn(Player player) {
 
         oneDone = false;
