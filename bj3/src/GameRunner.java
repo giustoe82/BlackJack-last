@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 public class GameRunner {
 
-// hej shan0000000
+
  public static final Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -17,7 +17,7 @@ public class GameRunner {
 /////// Preface for new variables, Objects, etc.//////////////////////
         System.out.println("───────────────────────────────────────");
         System.out.println("Welcome to BLACKJACK created by Team 2!");
-        System.out.println("─────────────────────────────────────────");
+        System.out.println("───────────────────────────────────────");
         Game game = new Game();
         Player play = new Player();
         Player[] players = play.multiPlayers();   /// multi players;
