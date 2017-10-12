@@ -1,108 +1,102 @@
 
-
 public class Hand {
 
-    private Card [] cards = new Card[10];
-    private int numCards;
+	private Card[] cards = new Card[10];
+	private int numCards;
 
+	// Constructor ////////////////////////////
+	public Hand(Card[] cards, int numCards) {
+		this.cards = cards;
+		this.numCards = numCards;
+	}
 
-    // Constructor ////////////////////////////
-    public Hand(Card[] cards, int numCards) {
-        this.cards = cards;
-        this.numCards = numCards;
-    }
+	public Hand() {
+	}
 
-    public Hand() {
-    }
+	/// Methods //////////////////////////////
+	public void empty() {
+		for (int i = 0; i < 10; i++) {
+			cards[i] = null;
+		}
+		this.numCards = 0;
+	}
 
+	public boolean addCard(Card card) {
 
-    /// Methods //////////////////////////////
-    public void empty(){
-        for (int i = 0; i < 10; i++) {
-            cards[i] = null;
-        }
-        this.numCards = 0;
-    }
+		if (numCards == 10) {
+			System.out.println("Player may max have 10 cards.");
+			System.exit(1);
+		}
 
-    public boolean addCard(Card card){
+		// add new card in the next slot and increment number of cards counter
+		this.cards[numCards] = card;
+		this.numCards++;
 
-        if (numCards == 10) {
-            System.out.println("Player may max have 10 cards.");
-            System.exit(1);
-        }
+		return (this.getSum() <= 21);
+	}
 
-        //add new card in the next slot and increment number of cards counter
-        this.cards[numCards] = card;
-        this.numCards++;
+	public int getSum() {
+		int sum = 0;
+		int cardNum;
+		int numAces = 0;
 
-        return (this.getSum() <=21);
-    }
+		// calculate each card´s contribution to the sum
+		for (int i = 0; i < this.numCards; i++) {
 
-    public int getSum() {
-        int sum = 0;
-        int cardNum;
-        int numAces = 0;
+			// get the number for the current card
+			cardNum = cards[i].getRank().getRankValue();
 
-        //calculate each card´s contribution to the sum
-        for (int i = 0; i < this.numCards; i++) {
+			if (cardNum == 11) { // Ace
+				numAces++;
+				sum += 11;
+			} else if (cardNum > 10) { // face card
+				sum += 10;
+			} else {
+				sum += cardNum;
+			}
+		}
 
-            //get the number for the current card
-            cardNum = cards[i].getRank().getRankValue();
+		// if we have Aces and our sum is > 21, set some/all of them to value 1
+		while (sum > 21 && numAces > 0) {
+			sum -= 10;
+			numAces--;
+		}
 
-            if (cardNum == 11) {    //Ace
-                numAces ++;
-                sum += 11;
-            }
-            else if (cardNum > 10) { // face card
-                sum += 10;
-            }
-            else {
-                sum += cardNum;
-            }
-        }
+		return sum;
+	}
 
-        //if we have Aces and our sum is > 21, set some/all of them to value 1
-        while (sum > 21 && numAces > 0) {
-            sum -= 10;
-            numAces --;
-        }
+	public void printHand(String name, boolean showFirstCard) {
 
-        return sum;
-    }
+		System.out.printf("%s's cards:%n", name);
 
+		for (int i = 0; i < this.numCards; i++) {
 
-    public void printHand(String name, boolean showFirstCard){
+			if (i == 0 && !showFirstCard) {
+				System.out.println(" [hidden]");
 
-        System.out.printf("%s's cards:%n", name);
+			} else {
+				System.out.println(cards[i].toString());
+			}
+		}
+	}
 
-        for (int i = 0; i < this.numCards; i++) {
+	public Card[] getCards() {
+		return cards;
+	}
 
-            if (i == 0 && !showFirstCard) {
-                System.out.println(" [hidden]");
+	public void setCards(Card[] cards) {
+		this.cards = cards;
+	}
 
-            } else {
-                System.out.println(cards[i].toString());
-            }
-        }
-    }
+	public int getNumCards() {
+		return numCards;
+	}
 
-    public Card[] getCards() {
-        return cards;
-    }
+	public void setNumCards(int numCards) {
+		if (numCards < 0) {
+			this.numCards = 0;
+		}
+		this.numCards = numCards;
+	}
 
-    public void setCards(Card[] cards) {
-        this.cards = cards;
-    }
-
-    public int getNumCards() {
-        return numCards;
-    }
-
-    public void setNumCards(int numCards) {
-        if (numCards < 0){
-            this.numCards = 0;
-        }
-        this.numCards = numCards;
-    }
-
-}  
+}

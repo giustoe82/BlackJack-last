@@ -1,29 +1,26 @@
 
-
 public class Card {
 
-    private Suit suit;
-    private Rank rank;
+	private Suit suit;
+	private Rank rank;
 
+	public Card(Rank rank, Suit suit) {
+		super();
+		this.suit = suit;
+		this.rank = rank;
+	}
 
-    public Card(Rank rank, Suit suit) {
-        super();
-        this.suit = suit;
-        this.rank = rank;
-    }
+	public Suit getSuit() {
+		return suit;
+	}
 
-    public Suit getSuit() {
-        return suit;
-    }
-
-    public Rank getRank() {
-        return rank;
-    }
+	public Rank getRank() {
+		return rank;
+	}
 
     public String toString() {
 
         String e;
-
 
         if (rank.getRankString().equals("10"))
         e =  "" +
@@ -45,6 +42,5 @@ public class Card {
                     "┗───────┛";
 
         return e;
-
     }
 }
