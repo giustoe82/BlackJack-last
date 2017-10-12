@@ -2,9 +2,7 @@
 
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
-/*
- * The main class
- */
+
 public class GameRunner {
 
 
