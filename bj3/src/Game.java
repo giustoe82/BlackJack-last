@@ -8,7 +8,6 @@ public class Game {
     private Deck theDeck = new Deck();
     private boolean oneDone = false;
     private boolean dealerDone = false;
-    boolean blackjack = false;
 
     //// Method for player HIT/STAY ///////////////////////////////////////
     protected boolean playerTurn(Player player) {
@@ -19,8 +18,7 @@ public class Game {
             if (player.getSum() == 21) {
                 System.out.println("BLACKJACK");
                 System.out.println(player.getName());
-                oneDone = true;
-                return oneDone;
+                return true;
             }
 
             System.out.println(player.getName() + ", Hit or Stay? (Enter H or S): ");
