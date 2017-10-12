@@ -34,7 +34,6 @@ public class GameRunner {
         Deck theDeck = new Deck();
 
 //////// The Game Starts!!! ///////////////////////////////////////////////////
-        labelA:
         for (;;){   // Loop here is prepared for additional rounds;
 
 //-------------------------------------------------------------------------------
