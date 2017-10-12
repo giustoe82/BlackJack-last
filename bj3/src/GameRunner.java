@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 public class GameRunner {
 
-// hej shan0000000
+
  public static final Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
