@@ -17,9 +17,9 @@ public class GameRunner {
     private void run() {
 
 /////// Preface for new variables, Objects, etc.//////////////////////
-        System.out.println("───");
+        System.out.println("───────────────────────────────────────");
         System.out.println("Welcome to BLACKJACK created by Team 2!");
-        System.out.println("_______________________________________");
+        System.out.println("───────────────────────────────────────");
         Game game = new Game();
         Player play = new Player();
         Player[] players = play.multiPlayers();   /// multi players;
