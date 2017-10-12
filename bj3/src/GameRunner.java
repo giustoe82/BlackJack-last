@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 public class GameRunner {
 
 
-    public static final Scanner sc = new Scanner(System.in);
+ public static final Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
         new GameRunner().run();
